@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">dumi</string>
+
+    <!--    Fragment Home-->
+    <string name="fragment_home_label">Home fragment</string>
+    <string name="fragment_home_btn_start_txt">Start</string>
+
+    <!--    Fragment Game-->
+    <string name="fragment_game_label">Game fragment</string>
+
+    <!--    Fragment Profile-->
+    <string name="fragment_profile_label">Profile fragment</string>
+
+    <!--    Nav Drawer-->
+    <string name="drawer_item_home_title">Home</string>
+    <string name="drawer_item_game_title">Game</string>
+    <string name="drawer_item_profile_title">Profile</string>
+
+    <!--    Nav Header-->
+    <string name="nav_header_title">Dumi</string>
+
+</resources>
