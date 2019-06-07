@@ -19,5 +19,6 @@
 
     <!--    Nav Header-->
     <string name="nav_header_title">Dumi</string>
+    <string name="empty"/>
 
 </resources>

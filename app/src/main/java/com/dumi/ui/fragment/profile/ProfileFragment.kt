@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.dumi.R
+import com.dumi.databinding.FragmentProfileBinding
+import com.dumi.ui.fragment.BaseFragment
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfileVM>() {
+
+    override val layoutId: Int = R.layout.fragment_profile
+    override val viewModelClass = ProfileVM::class
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
