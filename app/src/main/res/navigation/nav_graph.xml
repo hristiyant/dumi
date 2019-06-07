@@ -9,7 +9,7 @@
     <fragment
             android:id="@+id/homeFragment"
             android:name="com.dumi.ui.fragment.home.HomeFragment"
-            android:label="fragment_home"
+            android:label="@string/drawer_item_home_title"
             tools:layout="@layout/fragment_home">
 
         <action
@@ -21,13 +21,13 @@
     <fragment
             android:id="@+id/gameFragment"
             android:name="com.dumi.ui.fragment.game.GameFragment"
-            android:label="fragment_game"
+            android:label="@string/drawer_item_game_title"
             tools:layout="@layout/fragment_game"/>
 
     <fragment
             android:id="@+id/profileFragment"
             android:name="com.dumi.ui.fragment.profile.ProfileFragment"
-            android:label="fragment_profile"
+            android:label="@string/drawer_item_profile_title"
             tools:layout="@layout/fragment_profile"/>
 
 </navigation>

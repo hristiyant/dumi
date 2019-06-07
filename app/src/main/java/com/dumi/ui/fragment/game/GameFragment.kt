@@ -1,21 +1,14 @@
 package com.dumi.ui.fragment.game
 
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.dumi.R
+import com.dumi.databinding.FragmentGameBinding
+import com.dumi.ui.fragment.BaseFragment
 
-class GameFragment : Fragment() {
+class GameFragment : BaseFragment<FragmentGameBinding, GameVM>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override val layoutId: Int = R.layout.fragment_game
+    override val viewModelClass = GameVM::class
 
-        return inflater.inflate(R.layout.fragment_game, container, false)
-    }
-
+    override fun isToolbarBackArrowVisible() = true
 }

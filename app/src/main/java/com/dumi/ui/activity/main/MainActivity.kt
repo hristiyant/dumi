@@ -2,23 +2,26 @@ package com.dumi.ui.activity.main
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.dumi.R
+import com.dumi.databinding.ActivityMainBinding
+import com.dumi.ui.activity.BaseActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(), NavigationView.OnNavigationItemSelectedListener {
+
+    override val layoutId: Int = R.layout.activity_main
+    override val viewModelClass = MainVM::class
 
     lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         setupNavigation()
     }

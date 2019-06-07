@@ -2,20 +2,17 @@ package com.dumi.ui.fragment.home
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.dumi.R
+import com.dumi.databinding.FragmentHomeBinding
+import com.dumi.ui.activity.main.MainActivity
+import com.dumi.ui.fragment.BaseFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override val layoutId: Int = R.layout.fragment_home
+    override val viewModelClass = HomeVM::class
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
+    override fun isToolbarBackArrowVisible() = true
 }
