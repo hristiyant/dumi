@@ -23,6 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
     dataBinding {
         enabled = true
@@ -31,6 +34,7 @@ android {
 ext {
     lifecycle_version = "2.0.0"
     dagger_version = "2.21"
+    retrofit_version = "2.6.0"
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -53,4 +57,11 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    implementation 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+
 }

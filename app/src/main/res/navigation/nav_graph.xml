@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph"
@@ -11,10 +10,12 @@
             android:name="com.dumi.ui.fragment.home.HomeFragment"
             android:label="@string/drawer_item_home_title"
             tools:layout="@layout/fragment_home">
-
         <action
                 android:id="@+id/action_homeFragment_to_gameFragment"
-                app:destination="@id/gameFragment"/>
+                app:destination="@id/gameFragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_loadingGameFragment"
+                app:destination="@id/loadingGameFragment" />
 
     </fragment>
 
@@ -22,12 +23,59 @@
             android:id="@+id/gameFragment"
             android:name="com.dumi.ui.fragment.game.GameFragment"
             android:label="@string/drawer_item_game_title"
-            tools:layout="@layout/fragment_game"/>
+            tools:layout="@layout/fragment_game">
+        <action
+                android:id="@+id/action_gameFragment_to_gamePausedDialogFragment"
+                app:destination="@id/gamePausedFragment"
+                app:enterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+                android:id="@+id/action_gameFragment_to_loadingGameFragment"
+                app:destination="@id/loadingGameFragment" />
+        <action
+                android:id="@+id/action_gameFragment_to_endGameFragment"
+                app:destination="@id/endGameFragment" />
+    </fragment>
 
     <fragment
             android:id="@+id/profileFragment"
             android:name="com.dumi.ui.fragment.profile.ProfileFragment"
             android:label="@string/drawer_item_profile_title"
-            tools:layout="@layout/fragment_profile"/>
+            tools:layout="@layout/fragment_profile" />
+
+    <fragment
+            android:id="@+id/gamePausedFragment"
+            android:name="com.dumi.ui.fragment.pause.GamePausedFragment"
+            android:label="GamePausedFragment">
+        <action
+                android:id="@+id/action_gamePausedFragment_to_helpFragment"
+                app:destination="@id/helpFragment" />
+        <action
+                android:id="@+id/action_gamePausedFragment_to_homeFragment"
+                app:destination="@id/homeFragment" />
+        <action
+                android:id="@+id/action_gamePausedFragment_to_loadingGameFragment"
+                app:destination="@id/loadingGameFragment" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/helpFragment"
+            android:name="com.dumi.ui.fragment.help.HelpFragment"
+            android:label="HelpFragment" />
+    <fragment
+            android:id="@+id/loadingGameFragment"
+            android:name="com.dumi.ui.fragment.loading.LoadingGameFragment"
+            android:label="LoadingGameFragment" >
+        <action
+                android:id="@+id/action_loadingGameFragment_to_gameFragment"
+                app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/endGameFragment"
+            android:name="com.dumi.ui.fragment.endgame.EndGameFragment"
+            android:label="EndGameFragment" >
+        <action
+                android:id="@+id/action_endGameFragment_to_homeFragment"
+                app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>

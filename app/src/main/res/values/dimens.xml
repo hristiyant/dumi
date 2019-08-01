@@ -19,5 +19,13 @@
 
     <!--Nav Header-->
     <dimen name="nav_header_height">192dp</dimen>
+    <dimen name="txt_size_entered_word">20sp</dimen>
+
+    <!--    Horizontal EditText Cursor-->
+    <dimen name="edit_text_horizontal_cursor_width">18dp</dimen>
+    <dimen name="edit_text_horizontal_cursor_height">1dp</dimen>
+    <dimen name="edit_text_horizontal_cursor_padding_top">-23sp</dimen>
+    <dimen name="edit_text_horizontal_cursor_padding_bottom">1sp</dimen>
+    <dimen name="edit_text_horizontal_cursor_padding_left">-3sp</dimen>
 
 </resources>

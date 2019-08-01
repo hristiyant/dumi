@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.dumi.R
 import com.dumi.databinding.ActivityMainBinding
@@ -13,7 +14,8 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(),
+    NavigationView.OnNavigationItemSelectedListener {
 
     override val layoutId: Int = R.layout.activity_main
     override val viewModelClass = MainVM::class
@@ -27,12 +29,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(), NavigationView
     }
 
     private fun setupNavigation() {
-
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navigationView, navController)
 
@@ -45,16 +46,19 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(), NavigationView
     }
 
     override fun onBackPressed() {
+        val navDestination = navHostFragment.findNavController().currentDestination
+        if (navDestination!!.id == R.id.nav_game) {
+            super.onBackPressed()
+        }
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
+            drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-
         menuItem.isChecked = true
         drawerLayout.closeDrawers()
 

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -29,7 +28,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     @get:LayoutRes
     protected abstract val layoutId: Int
 
-    private lateinit var binding: B
+    protected lateinit var binding: B
     protected lateinit var viewModel: VM
     protected abstract val viewModelClass: KClass<VM>
 
