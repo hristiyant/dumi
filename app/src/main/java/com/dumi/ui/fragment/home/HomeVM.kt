@@ -7,6 +7,9 @@ import javax.inject.Inject
 
 class HomeVM @Inject constructor() : BaseViewModel() {
 
+    fun getWordsFromSpring(){
+
+    }
     fun navigateToGameScreen() {
         publish(ScreenNavigationEvent(Navigation.START_GAME))
     }

@@ -25,7 +25,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
         subscribe(ScreenNavigationEvent::class, Observer {
             when (it.navigation) {
                 Navigation.START_GAME -> {
+                    viewModel.
                     findNavController().navigate(R.id.action_homeFragment_to_loadingGameFragment)
+
                 }
                 else -> {
                     //Not used

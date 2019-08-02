@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dumi.BR
 import com.dumi.R
 import com.dumi.event.LiveEvent
+import com.dumi.networking.service.WordsRestService
 import com.dumi.ui.BaseViewModel
 import com.dumi.ui.activity.BaseActivity
 import dagger.android.support.AndroidSupportInjection
@@ -24,6 +25,8 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    protected lateinit var wordsRestService: WordsRestService
 
     @get:LayoutRes
     protected abstract val layoutId: Int

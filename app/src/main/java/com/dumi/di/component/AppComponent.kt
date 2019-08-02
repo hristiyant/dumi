@@ -4,6 +4,7 @@ import com.dumi.di.module.activity.ActivityModule
 import com.dumi.di.module.application.ApplicationModule
 import com.dumi.di.module.dialogfragment.DialogFragmentModule
 import com.dumi.di.module.fragment.FragmentModule
+import com.dumi.di.module.network.NetworkingModule
 import com.dumi.di.module.viewmodel.DaggerViewModelInjectionModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -18,6 +19,7 @@ import javax.inject.Singleton
         DaggerViewModelInjectionModule::class,
         ActivityModule::class,
         FragmentModule::class,
+        NetworkingModule::class,
         DialogFragmentModule::class,
         ApplicationModule::class
     ]
