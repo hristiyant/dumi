@@ -1,6 +1,5 @@
 package com.dumi.ui.fragment.home
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -25,8 +24,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
         subscribe(ScreenNavigationEvent::class, Observer {
             when (it.navigation) {
                 Navigation.START_GAME -> {
-                    viewModel.
-                    findNavController().navigate(R.id.action_homeFragment_to_loadingGameFragment)
+                    viewModel.getWordsFromSpring()
+//                    findNavController().navigate(R.id.action_homeFragment_to_loadingGameFragment)
 
                 }
                 else -> {

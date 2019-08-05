@@ -3,7 +3,7 @@ package com.dumi.di.module.network
 import android.app.Application
 import com.dumi.networking.interceptor.OK_HTTP_CLIENT_TIMEOUT
 import com.dumi.networking.interceptor.RequestInterceptor
-import com.dumi.networking.repository.WordsRepository
+import com.dumi.networking.repository.WordsApi
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
@@ -11,7 +11,6 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -63,21 +62,21 @@ class NetworkingModule {
 
     @Singleton
     @Provides
-    fun provideRetrofift(
+    fun provideRetrofit(
         gsonConverterFactory: GsonConverterFactory,
         okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("localhost:8080/")
+            .baseUrl("http://10.0.2.2:8080/")
             .addConverterFactory(gsonConverterFactory)
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build()
     }
 
     @Singleton
     @Provides
-    fun provideWordsRepository(retrofit: Retrofit): WordsRepository {
-        return retrofit.create(WordsRepository::class.java)
+    fun provideWordsRepository(retrofit: Retrofit): WordsApi {
+        return retrofit.create(WordsApi::class.java)
     }
 }

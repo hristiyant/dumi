@@ -2,9 +2,9 @@ package com.dumi.networking.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RepoResult(val words: List<Word>)
+data class RepoResult(val words: List<WordResponse>)
 
-data class Word(
+data class WordResponse(
     @SerializedName("id")
     val id: Int,
     @SerializedName("word")
