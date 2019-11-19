@@ -5,12 +5,13 @@ import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.dumi.R
 import com.dumi.databinding.ActivityMainBinding
 import com.dumi.ui.activity.BaseActivity
 import com.google.android.material.navigation.NavigationView
+import dagger.android.AndroidInjectionModule
+import dagger.android.support.AndroidSupportInjectionModule
 import kotlinx.android.synthetic.main.activity_main.*
 
 

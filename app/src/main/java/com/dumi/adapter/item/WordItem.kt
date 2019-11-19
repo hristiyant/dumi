@@ -9,6 +9,10 @@ data class WordItem(
     var isCorrect: Boolean = false
 ) : LifecycleObserver, RecyclerItem {
 
+    fun setIsCorrect(newValue: Boolean) {
+        isCorrect = newValue
+    }
+
     override fun getLayoutId(): Int {
         return if (isCorrect) {
             R.layout.item_correct_word

@@ -54,8 +54,6 @@ class NetworkingModule {
     fun provideGsonConverterFactory(): GsonConverterFactory {
         val gsonBuilder = GsonBuilder()
 
-        //////
-
         val gson = gsonBuilder.create()
         return GsonConverterFactory.create(gson)
     }

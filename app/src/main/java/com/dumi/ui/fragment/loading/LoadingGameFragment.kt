@@ -13,7 +13,6 @@ import com.dumi.ui.fragment.BaseGameFragment
 import com.dumi.ui.fragment.SharedGameVM
 import com.dumi.util.RandomWordStartPickerUtil
 import kotlinx.android.synthetic.main.fragment_loading_game.*
-import java.util.*
 
 class LoadingGameFragment : BaseGameFragment<FragmentLoadingGameBinding, SharedGameVM>() {
 
@@ -26,11 +25,34 @@ class LoadingGameFragment : BaseGameFragment<FragmentLoadingGameBinding, SharedG
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = activity?.run {
-            ViewModelProviders.of(this).get(viewModelClass.java)
-        } ?: throw Exception("Invalid Activity")
+        initSharedGameVM()
+    }
 
-        viewModel.loadGameLevels(generateAllGameLevels())
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        animationDrawable = (imgCountdown.background) as AnimationDrawable
+
+        viewModel.fetchGameLevels()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        animationDrawable?.start()
+
+        checkAnimationStatus(50, animationDrawable)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.cancelAllRequests()
+    }
+
+    private fun initSharedGameVM() {
+        activity?.let {
+            viewModel = ViewModelProviders.of(it, viewModelFactory).get(viewModelClass.java)
+        }
     }
 
     private fun generateAllGameLevels(): HashMap<Int, String> {
@@ -48,20 +70,6 @@ class LoadingGameFragment : BaseGameFragment<FragmentLoadingGameBinding, SharedG
         }
 
         return map
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        animationDrawable = (imgCountdown.background) as AnimationDrawable
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        animationDrawable?.start()
-
-        checkAnimationStatus(50, animationDrawable)
     }
 
     private fun checkAnimationStatus(time: Int, animationDrawable: AnimationDrawable?) {

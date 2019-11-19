@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
 abstract class BaseViewModel : ViewModel(), LifecycleObserver {
 
     @Inject
-    protected lateinit var wordsApiService: WordsApiService
+    lateinit var wordsApiService: WordsApiService
 
     private var compositeDisposable: CompositeDisposable? = null
 

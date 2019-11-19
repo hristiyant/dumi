@@ -1,13 +1,12 @@
 package com.dumi.networking.repository
 
-import com.dumi.networking.response.RepoResult
+import com.dumi.model.Level
+import com.dumi.model.Prefix
+import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface WordsApi {
 
-    @GET("words/{rootId}")
-    fun getAllWordsByRootId(
-            @Path("rootId") rootId: Int
-    ): io.reactivex.Single<RepoResult>
+    @GET("game/load-levels")
+    suspend fun getLevelsAsync(): Response<List<Prefix>>
 }

@@ -12,6 +12,7 @@ import java.util.regex.Pattern
  */
 const val CYRILLIC_CHARACTERS_ONLY_REGEX = "[А-ЯA-Z]"
 
+// TODO: 7.10.2019 Pass regex as parameter based on the user's preferences(selected language).
 class RegexInputFilter : InputFilter {
 
     override fun filter(

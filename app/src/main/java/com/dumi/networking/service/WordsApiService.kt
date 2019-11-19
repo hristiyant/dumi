@@ -1,15 +1,20 @@
 package com.dumi.networking.service
 
+import com.dumi.model.Level
+import com.dumi.model.Prefix
 import com.dumi.networking.repository.WordsApi
-import com.dumi.networking.response.RepoResult
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class WordsApiService @Inject constructor(private val wordsApi: WordsApi) {
+class WordsApiService @Inject constructor(private val wordsApi: WordsApi) : BaseApiService() {
 
-    fun getAllWordsByRootId(rootId: Int): Single<RepoResult> {
-        return wordsApi.getAllWordsByRootId(rootId)
+    suspend fun getLevels(): MutableList<Prefix>? {
+        val gameResponse = safeApiCall(
+            call = { wordsApi.getLevelsAsync() },
+            errorMessage = "Error Fetching Game Levels' Data"
+        )
+
+        return gameResponse?.toMutableList()
     }
 }

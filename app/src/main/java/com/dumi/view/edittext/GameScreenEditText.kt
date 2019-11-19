@@ -3,9 +3,10 @@ package com.dumi.view.edittext
 import android.content.Context
 import android.util.AttributeSet
 import android.view.KeyEvent
+import android.widget.EditText
 import com.google.android.material.textfield.TextInputEditText
 
-class GameScreenEditText : TextInputEditText {
+class GameScreenEditText : EditText {
 
     constructor(context: Context) : super(context)
 
